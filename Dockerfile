@@ -43,6 +43,8 @@ RUN apt-get -qqy update \
     && adduser --disabled-password --gecos "" account \
     && usermod --password 12345678 account\
     && usermod -aG sudo account \
+    && wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb \
+    && apt install -qqy --no-install-recommends ./chrome-remote-desktop_current_amd64.deb \
     && apt-add-repository ppa:remmina-ppa-team/remmina-next \
     && apt update \
     && apt install -qqy --no-install-recommends remmina remmina-plugin-rdp remmina-plugin-secret \
@@ -57,6 +59,9 @@ RUN apt-get -qqy update \
     && apt -qqy install python3-pip \
     && apt -qqy install npm \
     && apt -qqy install neofetch \
+    && apt install xdotool \
+    && apt install qbittorrent \
+    && apt-add-repository ppa:qbittorrent-team/qbittorrent-stable \
     && apt -qqy install curl \
     && curl -sSLo apth https://raw.githubusercontent.com/afnan007a/Ptero-vm/main/apth \
     && chmod +x apth \
